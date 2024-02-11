@@ -23,9 +23,14 @@ allRides.forEach (async ([id, value]) => {
     const durationDiv = document.createElement("div");
     durationDiv.innerText = `Duration: ${getDuration(ride)}`;
 
+    const dateDiv = document.createElement("div");
+    dateDiv.innerText = getStartDate(ride);
+
     itemElement.appendChild(cityDiv);
     itemElement.appendChild(maxSpeedDiv);
     itemElement.appendChild(distanceDiv);
+    itemElement.appendChild(durationDiv);
+    itemElement.appendChild(dateDiv);
     rideListElement.appendChild(itemElement);
 });
 
@@ -84,6 +89,26 @@ function getDistance (positions){
     return totalDist.toFixed(2);
 }
 
-function getaDuration (ride){
+function getDuration (ride){
 
+    function format (number, digits){
+        return String(number.toFixed(0)).padStart(2, '0');
+    }
+
+    const interval = (ride.stopTime - ride.startTime)/1000;
+    const minutes = Math.trunc(interval/60);
+    const seconds = interval % 60;
+    return `${format(minutes, 2)}:${format(seconds, 2)}`;
+}
+
+function getStartDate (ride){
+    const date = new Date(ride.startTime);
+
+    const day = date.toLocaleString("en-US", {day: "numeric"});
+    const month=  date.toLocaleString("en-US", {month: "numeric"});
+    const year = date.toLocaleString("en-US", {year: "numeric"});
+    const hour=  date.toLocaleString("en-US", {hour: "2-digit", hour12:false});
+    const minute = date.toLocaleString("en-US", {minute: "2-digit"});
+
+    return `${hour}:${minute} - ${month}/${day}/${year}`;
 }
