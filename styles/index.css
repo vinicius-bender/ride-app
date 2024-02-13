@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+}
+
+a{
+    background-color: aqua;
+    text-decoration: none;
+    padding: 20px;
+    border: none;
+    border-radius: 50%;
+    position: fixed; 
+    bottom: 0;
+    right: 0;
+    margin: 0px 5px 5px 0px;
+}
+
+i{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.itemElement{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.dataElement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    /* gap: 5px; */
+}
+
+.map{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+}

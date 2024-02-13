@@ -10,6 +10,14 @@ allRides.forEach (async ([id, value]) => {
 
     const itemElement = document.createElement("li");
     itemElement.id = ride.id;
+    itemElement.classList.add("itemElement");
+
+    const mapElement = document.createElement("div");
+    mapElement.classList.add("map");
+
+
+    const dataElement = document.createElement("div");
+    dataElement.classList.add("dataElement");
 
     const cityDiv = document.createElement("div");
     cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.countryCode}`;
@@ -26,12 +34,16 @@ allRides.forEach (async ([id, value]) => {
     const dateDiv = document.createElement("div");
     dateDiv.innerText = getStartDate(ride);
 
-    itemElement.appendChild(cityDiv);
-    itemElement.appendChild(maxSpeedDiv);
-    itemElement.appendChild(distanceDiv);
-    itemElement.appendChild(durationDiv);
-    itemElement.appendChild(dateDiv);
+
+    dataElement.appendChild(cityDiv);
+    dataElement.appendChild(maxSpeedDiv);
+    dataElement.appendChild(distanceDiv);
+    dataElement.appendChild(durationDiv);
+    dataElement.appendChild(dateDiv);
+    itemElement.appendChild(mapElement);
+    itemElement.appendChild(dataElement);
     rideListElement.appendChild(itemElement);
+    
 });
 
 
