@@ -15,7 +15,7 @@ a{
     position: fixed; 
     bottom: 0;
     right: 0;
-    margin: 0px 5px 5px 0px;
+    margin: 0px 10px 10px 0px;
 }
 
 i{
@@ -38,6 +38,21 @@ i{
     justify-content: center;
     align-items: start;
     /* gap: 5px; */
+}
+
+.cityDiv{
+    color: aqua;
+    margin-bottom: 10px;
+}
+
+.maxSpeedDiv{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dateDiv{
+    color: rgb(153, 153, 153);
+    margin-top: 10px;
 }
 
 .map{
