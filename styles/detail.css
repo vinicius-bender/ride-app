@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+}
+
+.detailsSection{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #212529;
+    font-weight: 700;
+}
+
+/* #detailsData{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+} */
+
+#mapDetail{
+    height: 200px;
+    background-color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dataElement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    /* gap: 5px; */
+}
+
+.cityDiv{
+    color: aqua;
+    margin-bottom: 10px;
+}
+
+.maxSpeedDiv{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dateDiv{
+    color: rgb(153, 153, 153);
+    margin-top: 10px;
+}
+
+.button-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.delete-btn{
+    width: 50%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}

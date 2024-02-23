@@ -19,6 +19,7 @@ a{
     text-decoration: none;
     color: #212529;
     font-weight: 700;
+    /* float: right; */
 }
 
 .speed-div{

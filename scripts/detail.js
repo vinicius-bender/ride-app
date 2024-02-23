@@ -1,21 +1,11 @@
-const rideListElement = document.querySelector("#rideList");
-const allRides = getAllRides();
+const params = new URLSearchParams(window.location.search);
+const rideID = params.get("id");
+const ride = getRideRecord(rideID);
 
-allRides.forEach (async ([id, value]) => {
-    const ride = JSON.parse(value);
-    ride.id = id;
-
-    const itemElement = document.createElement("li");
-    itemElement.id = ride.id;
-    itemElement.classList.add("itemElement");
-    rideListElement.appendChild(itemElement);
+document.addEventListener("DOMContentLoaded", async () => {
 
     const firstPosition = ride.data[0];
     const firstLocationData = await getLocationData(firstPosition.latitude, firstPosition.longitude);
-
-    const mapElement = document.createElement("div");
-    mapElement.classList.add("map");
-
 
     const dataElement = document.createElement("div");
     dataElement.classList.add("dataElement");
@@ -27,7 +17,7 @@ allRides.forEach (async ([id, value]) => {
     const maxSpeedDiv = document.createElement("div");
     maxSpeedDiv.innerText = `Max Speed: ${getMaxSpeed(ride.data)} Km/h`;
     maxSpeedDiv.classList.add("maxSpeedDiv");
-    
+
     const distanceDiv = document.createElement("div");
     distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`;
 
@@ -38,15 +28,12 @@ allRides.forEach (async ([id, value]) => {
     dateDiv.innerText = getStartDate(ride);
     dateDiv.classList.add("dateDiv");
 
-    itemElement.addEventListener("click", () => {
-        window.location.href = `./detail.html?id=${ride.id}`;
-    });
-
     dataElement.appendChild(cityDiv);
     dataElement.appendChild(maxSpeedDiv);
     dataElement.appendChild(distanceDiv);
     dataElement.appendChild(durationDiv);
     dataElement.appendChild(dateDiv);
-    itemElement.appendChild(mapElement);
-    itemElement.appendChild(dataElement);
+    document.querySelector("#detailsData").appendChild(dataElement);
+
 });
+
