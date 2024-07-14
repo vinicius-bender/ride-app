@@ -42,4 +42,5 @@ stopBtn.addEventListener("click", () => {
     currentRide = null;
     stopBtn.style.display = "none";
     startBtn.style.display = "block";
+    window.location.href = `./`;
 });

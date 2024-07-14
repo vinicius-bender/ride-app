@@ -31,6 +31,7 @@ a{
 } */
 
 #mapDetail{
+    /* width: 100%; */
     height: 200px;
     background-color: #ccc;
     margin-top: 10px;

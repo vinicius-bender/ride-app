@@ -35,13 +35,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     dataElement.appendChild(dateDiv);
     document.querySelector("#detailsData").appendChild(dataElement);
 
+    const deleteButton = document.querySelector("#deleteBtn");
+    deleteButton.addEventListener("click", ( )=> {
+
+        deleteRide(rideID);
+        window.location.href = `./`;
+    });
+
     const map = L.map("mapDetail");
-    map.setView(firstPosition.latitude, firstPosition.longitude);
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
+    map.setView([firstPosition.latitude, firstPosition.longitude], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 5,
 	maxZoom: 20,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	//attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	ext: 'png'
     }).addTo(map);
+
+    const positionsArray = ride.data.map((position => {
+        return [position.latitude, position.longitude];
+    }));
+
+    const polyline = L.polyline(positionsArray, {color: "#F00"});
+    polyLine.addTo(map);
+
+    map.fitBounds(polyline.getBounds());
 });
 
